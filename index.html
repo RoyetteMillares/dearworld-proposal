@@ -58,7 +58,6 @@
             margin-bottom: 20px;
         }
 
-        /* HEADER */
         header {
             padding: 40px 0;
             border-bottom: 4px solid var(--accent);
@@ -116,6 +115,20 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 40px;
+        }
+
+        /* RESPONSIVE GRIDS */
+        @media (max-width: 768px) {
+
+            .grid-2,
+            .grid-3 {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+                /* Better mobile title size */
+            }
         }
 
         /* SECTION DIVIDERS */
@@ -273,13 +286,28 @@
                 gap: 10px;
             }
         }
+
+        /* ANIMATIONS */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 </head>
 
 <body>
 
     <div class="container">
-        <header>
+        <header class="reveal">
             <div class="brand">Dear World &times; Royette</div>
             <div class="meta">
                 PROPOSAL V2.0<br>
@@ -288,13 +316,13 @@
             </div>
         </header>
 
-        <section class="hero">
+        <section class="hero reveal">
             <h1>A Wikipedia for Stories.</h1>
             <p class="lead">Moving beyond simple photo hosting to a living, breathing library of human experience. Safe.
                 Searchable. Owned by you.</p>
         </section>
 
-        <section class="mt-l">
+        <section class="mt-l reveal">
             <div class="section-divider">
                 <b style="text-transform: uppercase; letter-spacing: 1px;">The Vision</b>
             </div>
@@ -316,7 +344,320 @@
             </div>
         </section>
 
-        <section class="mt-l">
+        <section class="mt-l reveal">
+            <div class="section-divider">
+                <b style="text-transform: uppercase; letter-spacing: 1px;">Visual Concept: The Experience</b>
+            </div>
+            <div class="grid-2">
+                <div>
+                    <h3 style="margin-top: 0; font-size: 1.8rem;">Frictonless Entry.</h3>
+                    <p style="color: var(--secondary); margin-bottom: 20px;">
+                        We don't want users fighting with passwords. The interface should feel invisible.
+                        <br><br>
+                        Here is a live simulation of the <b>"Magic Login"</b> flow we will build. It's fast, secure, and
+                        needs zero cognitive load.
+                    </p>
+                </div>
+                <div style="display: flex; justify-content: center;">
+                    <div class="phone-frame">
+                        <div class="phone-screen">
+                            <div class="app-header">Dear World</div>
+                            <div class="login-flow">
+                                <p style="font-size: 0.8rem; margin-bottom: 10px;">Enter your email to view your story.
+                                </p>
+                                <div class="input-sim">
+                                    <span class="typing-text"></span><span class="cursor">|</span>
+                                </div>
+                                <div class="btn-sim">Get My Link</div>
+                                <div class="success-msg">
+                                    <div class="check-icon">✓</div>
+                                    <div style="font-weight: bold;">Check your inbox!</div>
+                                    <div style="font-size: 0.7rem; opacity: 0.8;">We sent a magic link to
+                                        george@dearworld.com
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <style>
+                .phone-frame {
+                    width: 300px;
+                    height: 500px;
+                    border: 8px solid #000;
+                    border-radius: 30px;
+                    padding: 10px;
+                    background: #fff;
+                    box-shadow: 20px 20px 0px rgba(0, 0, 0, 0.05);
+                }
+
+                .phone-screen {
+                    width: 100%;
+                    height: 100%;
+                    background: #f9fafb;
+                    border-radius: 20px;
+                    border: 1px solid #eee;
+                    overflow: hidden;
+                    position: relative;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    font-family: 'Inter', sans-serif;
+                }
+
+                .app-header {
+                    position: absolute;
+                    top: 20px;
+                    font-weight: 900;
+                    text-transform: uppercase;
+                    letter-spacing: -1px;
+                }
+
+                .login-flow {
+                    width: 80%;
+                    text-align: center;
+                }
+
+                .input-sim {
+                    background: #fff;
+                    border: 1px solid #ddd;
+                    padding: 10px;
+                    border-radius: 6px;
+                    margin-bottom: 10px;
+                    text-align: left;
+                    font-size: 0.9rem;
+                    height: 40px;
+                    display: flex;
+                    align-items: center;
+                    position: relative;
+                }
+
+                .cursor {
+                    animation: blink 1s infinite;
+                    color: #000;
+                    margin-left: 2px;
+                }
+
+                @keyframes blink {
+                    50% {
+                        opacity: 0;
+                    }
+                }
+
+                .btn-sim {
+                    background: #000;
+                    color: #fff;
+                    padding: 10px;
+                    border-radius: 6px;
+                    font-size: 0.9rem;
+                    font-weight: 600;
+                    cursor: pointer;
+                    transition: transform 0.1s;
+                }
+
+                .success-msg {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: #000;
+                    color: #fff;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    border-radius: 20px;
+                    opacity: 0;
+                    pointer-events: none;
+                    transition: opacity 0.5s ease;
+                }
+
+                .check-icon {
+                    font-size: 3rem;
+                    margin-bottom: 10px;
+                    color: #fff;
+                }
+
+                /* Animation Trigger Class */
+                .phone-frame.animating .btn-sim {
+                    transform: scale(0.95);
+                }
+
+                .phone-frame.animating .success-msg {
+                    opacity: 1;
+                }
+            </style>
+            </style>
+            <script>
+                document.addEventListener('DOMContentLoaded', () => {
+                    const typeText = "george@dearworld.com";
+                    const typingSpan = document.querySelector('.typing-text');
+                    const phoneFrame = document.querySelector('.phone-frame');
+                    const successMsg = document.querySelector('.success-msg');
+
+                    let charIndex = 0;
+
+                    function resetAnim() {
+                        typingSpan.textContent = "";
+                        charIndex = 0;
+                        successMsg.style.opacity = "0";
+                        setTimeout(typeWriter, 1000);
+                    }
+
+                    function typeWriter() {
+                        if (charIndex < typeText.length) {
+                            typingSpan.textContent += typeText.charAt(charIndex);
+                            charIndex++;
+                            setTimeout(typeWriter, 100);
+                        } else {
+                            setTimeout(clickButton, 500);
+                        }
+                    }
+
+                    function clickButton() {
+                        const btn = document.querySelector('.btn-sim');
+                        btn.style.transform = "scale(0.95)";
+                        setTimeout(() => {
+                            btn.style.transform = "scale(1)";
+                            showSuccess();
+                        }, 200);
+                    }
+
+                    function showSuccess() {
+                        successMsg.style.opacity = "1";
+                        setTimeout(resetAnim, 3000);
+                    }
+
+                    // Start loop
+                    resetAnim();
+                });
+            </script>
+        </section>
+
+        <section class="mt-l reveal">
+            <div class="section-divider">
+                <b style="text-transform: uppercase; letter-spacing: 1px;">Visual Concept: The Living Library</b>
+            </div>
+            <p style="color: var(--secondary); margin-bottom: 40px;">
+                Reference Guide Requirement: <i>"A Wikipedia-style experience."</i>
+                <br>
+                We achieve this by making the <b>Story</b> just as important as the Photo. Hover over any card below to
+                see the "Story First" interaction.
+            </p>
+
+            <div class="gallery-grid">
+                <div class="gallery-card">
+                    <img src="img/1.jpg" class="card-img" alt="Participant Story 1">
+                    <div class="card-content">
+                        <div class="card-meta">Participant #1024</div>
+                        <h4 class="card-title">The Day I Left</h4>
+                        <p class="card-story">"I packed everything I owned into a single blue suitcase..."</p>
+                    </div>
+                </div>
+                <div class="gallery-card">
+                    <img src="img/2.jpg" class="card-img" alt="Participant Story 2">
+                    <div class="card-content">
+                        <div class="card-meta">Participant #1025</div>
+                        <h4 class="card-title">My Brain Tattoo</h4>
+                        <p class="card-story">"They told me it was impossible, so I did it twice just to..."</p>
+                    </div>
+                </div>
+                <div class="gallery-card">
+                    <img src="img/3.jpg" class="card-img" alt="Participant Story 3">
+                    <div class="card-content">
+                        <div class="card-meta">Participant #1026</div>
+                        <h4 class="card-title">Silence</h4>
+                        <p class="card-story">"Sometimes the loudest things are the ones we never say..."</p>
+                    </div>
+                </div>
+            </div>
+
+            <style>
+                .gallery-grid {
+                    display: grid;
+                    grid-template-columns: repeat(3, 1fr);
+                    gap: 30px;
+                }
+
+                .gallery-card {
+                    aspect-ratio: 3/4;
+                    background: #f4f4f5;
+                    border-radius: 4px;
+                    position: relative;
+                    overflow: hidden;
+                    cursor: pointer;
+                    border: 1px solid #ddd;
+                    transition: all 0.3s ease;
+                }
+
+                .gallery-card:hover {
+                    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+                    transform: translateY(-5px);
+                    border-color: #000;
+                }
+
+                .card-img {
+                    width: 100%;
+                    height: 100%;
+                    transition: transform 0.5s ease;
+                    object-fit: cover;
+                }
+
+                .gallery-card:hover .card-img {
+                    transform: scale(1.1);
+                    opacity: 0.8;
+                }
+
+                .card-content {
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    width: 100%;
+                    padding: 25px;
+                    background: #fff;
+                    transform: translateY(100%);
+                    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+                    border-top: 1px solid #000;
+                }
+
+                .gallery-card:hover .card-content {
+                    transform: translateY(0);
+                }
+
+                .card-meta {
+                    font-size: 0.75rem;
+                    text-transform: uppercase;
+                    letter-spacing: 1px;
+                    color: #888;
+                    margin-bottom: 5px;
+                }
+
+                .card-title {
+                    margin: 0 0 5px 0;
+                    font-size: 1.1rem;
+                    color: #000;
+                }
+
+                .card-story {
+                    margin: 0;
+                    font-size: 0.9rem;
+                    color: #666;
+                    font-style: italic;
+                    line-height: 1.4;
+                }
+
+                @media(max-width: 768px) {
+                    .gallery-grid {
+                        grid-template-columns: 1fr;
+                    }
+                }
+            </style>
+        </section>
+
+        <section class="mt-l reveal">
             <div class="section-divider">
                 <b style="text-transform: uppercase; letter-spacing: 1px;">Core Platform Specifications</b>
             </div>
@@ -354,8 +695,7 @@
             </div>
         </section>
 
-        <!-- L10 TECHNICAL DEEP DIVE SECTION -->
-        <section class="mt-l">
+        <section class="mt-l reveal">
             <div class="section-divider">
                 <b style="text-transform: uppercase; letter-spacing: 1px;">Engineering Architecture: Why This is
                     Different</b>
@@ -366,7 +706,6 @@
 
             <div style="display: grid; grid-template-columns: 1fr; gap: 40px;">
 
-                <!-- 1. IDENTITY -->
                 <div
                     style="background: var(--card-bg); padding: 30px; border: 1px solid var(--border); border-radius: 8px;">
                     <h3 style="margin-top: 0; color: var(--primary);">1. Identity: The "Magic Login"</h3>
@@ -390,7 +729,6 @@
                     </div>
                 </div>
 
-                <!-- 2. BULK UPLOAD -->
                 <div
                     style="background: var(--card-bg); padding: 30px; border: 1px solid var(--border); border-radius: 8px;">
                     <h3 style="margin-top: 0; color: var(--primary);">2. Performance: 300+ Photo Bulk Upload</h3>
@@ -412,7 +750,6 @@
                     </div>
                 </div>
 
-                <!-- 3. PRIVACY -->
                 <div
                     style="background: var(--card-bg); padding: 30px; border: 1px solid var(--border); border-radius: 8px;">
                     <h3 style="margin-top: 0; color: var(--primary);">3. Trust: The "Brain Tattoo" Privacy</h3>
@@ -434,7 +771,6 @@
                     </div>
                 </div>
 
-                <!-- 4. SEARCH -->
                 <div
                     style="background: var(--card-bg); padding: 30px; border: 1px solid var(--border); border-radius: 8px;">
                     <h3 style="margin-top: 0; color: var(--primary);">4. Vision: The Wikipedia Search</h3>
@@ -459,47 +795,202 @@
             </div>
         </section>
 
-        <section class="mt-l">
+        <section class="mt-l reveal">
             <div class="section-divider">
                 <b style="text-transform: uppercase; letter-spacing: 1px;">The Roadmap: How We Get There</b>
             </div>
             <p style="color: var(--secondary); margin-bottom: 40px;">We don't build in the dark. We work in 2-week
                 "sprints" so you see progress constantly—not just at the end.</p>
 
-            <div class="timeline-item">
-                <div class="timeline-week">Weeks 1-2</div>
-                <div class="timeline-content">
-                    <h4>The Blueprint</h4>
-                    <p>We set up the secure database ("The Vault") and design the black-and-white visual capability. We
-                        ensure the "Magic Login" system is working perfectly.</p>
+
+
+            <div class="roadmap-metro-wrapper">
+                <svg class="metro-line" width="100%" height="80" viewBox="0 0 1000 80" preserveAspectRatio="none">
+                    <path class="metro-track" d="M 0 40 Q 125 10 250 40 T 500 40 T 750 40 T 1000 40" fill="none"
+                        stroke="#e5e7eb" stroke-width="2" stroke-dasharray="10 10" />
+                    <path class="metro-fill" d="M 0 40 Q 125 10 250 40 T 500 40 T 750 40 T 1000 40" fill="none"
+                        stroke="#000" stroke-width="4" />
+                </svg>
+
+                <div class="metro-stations">
+                    <div class="metro-station">
+                        <div class="station-circle">
+                            <span class="circle-text">WEEKS<br>1-2</span>
+                        </div>
+                        <div class="station-content">
+                            <h4>The Blueprint</h4>
+                            <p>Database Setup & Magic Login Architecture.</p>
+                        </div>
+                    </div>
+                    <div class="metro-station">
+                        <div class="station-circle">
+                            <span class="circle-text">WEEKS<br>3-6</span>
+                        </div>
+                        <div class="station-content">
+                            <h4>The Experience</h4>
+                            <p>Visual Gallery, Profile Pages & Story Engine.</p>
+                        </div>
+                    </div>
+                    <div class="metro-station">
+                        <div class="station-circle">
+                            <span class="circle-text">WEEKS<br>7-9</span>
+                        </div>
+                        <div class="station-content">
+                            <h4>The Control</h4>
+                            <p>Admin "Command Center" & Bulk Tools.</p>
+                        </div>
+                    </div>
+                    <div class="metro-station">
+                        <div class="station-circle">
+                            <span class="circle-text">WEEK<br>10</span>
+                        </div>
+                        <div class="station-content">
+                            <h4>Launch</h4>
+                            <p>Security Audits, Performance Polish & Go Live.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="timeline-item">
-                <div class="timeline-week">Weeks 3-6</div>
-                <div class="timeline-content">
-                    <h4>Building the Experience</h4>
-                    <p>We build the visual part—what the users see. This includes the gallery, the profile pages, and
-                        the story writing interface. We test it on phones, tablets, and desktops.</p>
-                </div>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-week">Weeks 7-9</div>
-                <div class="timeline-content">
-                    <h4>The Admin Tools</h4>
-                    <p>We build the "Command Center" for your team. This is where you drag-and-drop hundreds of photos
-                        to launch a new event in minutes.</p>
-                </div>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-week">Week 10</div>
-                <div class="timeline-content">
-                    <h4>Launch</h4>
-                    <p>Final polishing. We double-check security, speed, and reliability. Then, we flip the switch.</p>
-                </div>
-            </div>
+
+            <style>
+                .roadmap-metro-wrapper {
+                    position: relative;
+                    padding: 40px 0;
+                    overflow-x: hidden;
+                }
+
+                .metro-line {
+                    position: absolute;
+                    top: 40px;
+                    /* Aligns center of 80px SVG with center of Circles (at 80px) */
+                    left: 0;
+                    width: 100%;
+                    z-index: 0;
+                    pointer-events: none;
+                }
+
+                .metro-stations {
+                    display: grid;
+                    grid-template-columns: repeat(4, 1fr);
+                    position: relative;
+                    z-index: 1;
+                }
+
+                .metro-station {
+                    position: relative;
+                    padding-top: 100px;
+                    /* Space for circle */
+                    padding-right: 20px;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    /* Center content relative to circle */
+                    text-align: center;
+                }
+
+                .station-circle {
+                    width: 80px;
+                    height: 80px;
+                    background: #fff;
+                    border: 4px solid #000;
+                    border-radius: 50%;
+                    position: absolute;
+                    /* Base top is overridden by specific positions below */
+                    left: 50%;
+                    transform: translateX(-50%);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    z-index: 2;
+                }
+
+                /* POSITIONS MATCHING THE SINE WAVE - DESKTOP ONLY */
+                @media (min-width: 769px) {
+
+                    /* Wave Peak (Stations 1 & 3) */
+                    .metro-station:nth-child(1) .station-circle,
+                    .metro-station:nth-child(3) .station-circle {
+                        top: 0px;
+                    }
+
+                    /* Wave Trough (Stations 2 & 4) */
+                    .metro-station:nth-child(2) .station-circle,
+                    .metro-station:nth-child(4) .station-circle {
+                        top: 15px;
+                    }
+
+                    /* Push content down for the "Low" stations to avoid circle overlap */
+                    .metro-station:nth-child(2) .station-content,
+                    .metro-station:nth-child(4) .station-content {
+                        margin-top: 10px;
+                    }
+
+                    .station-content {
+                        margin-top: 20px;
+                        /* Default margin for High stations */
+                    }
+                }
+
+                .circle-text {
+                    font-size: 0.7rem;
+                    font-weight: 800;
+                    line-height: 1.1;
+                    text-align: center;
+                    color: #000;
+                }
+
+                .station-content {
+                    margin-top: 20px;
+                    /* Default margin for High stations */
+                    transition: margin 0.3s ease;
+                }
+
+                .station-content h4 {
+                    margin: 0 0 5px 0;
+                    font-size: 1.1rem;
+                }
+
+                @media(max-width: 768px) {
+                    .metro-stations {
+                        grid-template-columns: 1fr;
+                        padding-left: 20px;
+                    }
+
+                    .metro-line {
+                        display: none;
+                    }
+
+                    .metro-station {
+                        padding-top: 0;
+                        padding-left: 60px;
+                        /* Space for circle on left */
+                        margin-bottom: 40px;
+                        align-items: flex-start;
+                        text-align: left;
+                        min-height: 80px;
+                        /* Ensure height for circle */
+                    }
+
+                    .station-circle {
+                        left: 0;
+                        top: 0;
+                        transform: none;
+                        width: 50px;
+                        height: 50px;
+                    }
+
+                    .circle-text {
+                        font-size: 0.55rem;
+                    }
+
+                    .station-content {
+                        margin-top: 0;
+                    }
+                }
+            </style>
         </section>
 
-        <section class="mt-l">
+        <section class="mt-l reveal">
             <div class="section-divider">
                 <b style="text-transform: uppercase; letter-spacing: 1px;">Technical Foundation: The Power Under the
                     Hood</b>
@@ -543,7 +1034,7 @@
 
 
 
-        <section class="mt-l">
+        <section class="mt-l reveal">
             <div class="section-divider">
                 <b style="text-transform: uppercase; letter-spacing: 1px;">Scalability: Future-Proofing</b>
             </div>
@@ -574,7 +1065,7 @@
             </div>
         </section>
 
-        <section class="mt-l">
+        <section class="mt-l reveal">
             <div class="section-divider">
                 <b style="text-transform: uppercase; letter-spacing: 1px;">The Logistics</b>
             </div>
@@ -588,7 +1079,6 @@
                 style="background: #ffffff; padding: 30px; border-radius: 8px; border: 4px solid var(--primary); box-shadow: 10px 10px 0px rgba(0, 0, 0, 0.1);">
                 <h4
                     style="margin-top: 0; font-size: 1.5rem; text-transform: uppercase; letter-spacing: 1px; color: var(--primary); display: flex; align-items: center; gap: 15px;">
-                    <!-- Lucide Icon: TriangleAlert -->
                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
                         stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z" />
@@ -617,7 +1107,7 @@
             </div>
         </section>
 
-        <section class="mt-l">
+        <section class="mt-l reveal">
             <div class="section-divider">
                 <b style="text-transform: uppercase; letter-spacing: 1px;">Investment Options</b>
             </div>
@@ -668,7 +1158,7 @@
 
     </div>
 
-    <footer>
+    <footer class="reveal">
         <div class="container grid-2">
             <div>
                 <h2 style="margin-top: 0; font-size: 2rem;">Let's build this.</h2>
@@ -685,6 +1175,42 @@
         </div>
     </footer>
 
+    <script>
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 100;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        reveal();
+
+        gsap.registerPlugin(ScrollTrigger);
+
+        const path = document.querySelector(".metro-fill");
+        if (path) {
+            const pathLength = path.getTotalLength();
+
+            path.style.strokeDasharray = pathLength;
+            path.style.strokeDashoffset = pathLength;
+
+            gsap.to(path, {
+                strokeDashoffset: 0,
+                ease: "none",
+                scrollTrigger: {
+                    trigger: ".roadmap-metro-wrapper",
+                    start: "top 75%",
+                    end: "bottom 75%",
+                    scrub: 1
+                }
+            });
+        }
+    </script>
 </body>
 
 </html>
