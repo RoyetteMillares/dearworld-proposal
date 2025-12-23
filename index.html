@@ -4,14 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dear World Platform Proposal - Royette Millares</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <title>Dear World: The Wikipedia for Stories | Proposal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;900&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #000000;
-            --accent: #F5B53F;
+            --accent: #000000;
             --secondary: #666666;
-            --success: #10b981;
+            --success: #000000;
             --bg: #ffffff;
             --card-bg: #f9fafb;
             --border: #e5e7eb;
@@ -19,305 +19,258 @@
 
         * {
             box-sizing: border-box;
-            -webkit-print-color-adjust: exact;
-            print-color-adjust: exact;
         }
 
         body {
             font-family: 'Inter', sans-serif;
-            line-height: 1.6;
+            background-color: var(--bg);
             color: var(--primary);
-            background-color: #f3f4f6;
             margin: 0;
             padding: 0;
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
         }
 
-        .document-wrapper {
-            max-width: 950px;
-            margin: 40px auto;
-            background: var(--bg);
-            padding: 60px 80px;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        /* UTILITIES */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 40px;
         }
 
+        .text-c {
+            text-align: center;
+        }
+
+        .mt-s {
+            margin-top: 20px;
+        }
+
+        .mt-m {
+            margin-top: 50px;
+        }
+
+        .mt-l {
+            margin-top: 100px;
+        }
+
+        .mb-s {
+            margin-bottom: 20px;
+        }
+
+        /* HEADER */
         header {
+            padding: 40px 0;
             border-bottom: 4px solid var(--accent);
-            padding-bottom: 20px;
-            margin-bottom: 40px;
             display: flex;
             justify-content: space-between;
             align-items: flex-end;
         }
 
-        .header-title h1 {
-            font-size: 2.2rem;
-            font-weight: 800;
-            margin: 0;
+        .brand {
+            font-weight: 900;
+            font-size: 1.5rem;
+            text-transform: uppercase;
             letter-spacing: -1px;
-        }
-
-        .header-meta {
-            text-align: right;
-            font-size: 0.9rem;
-            color: var(--secondary);
-        }
-
-        h2 {
-            font-size: 1.6rem;
-            margin-top: 40px;
-            margin-bottom: 15px;
-            border-left: 5px solid var(--accent);
-            padding: 15px;
-            color: #ffffff;
-            background: #000000;
-            border-radius: 8px;
-        }
-
-        h3 {
-            font-size: 1.2rem;
-            color: var(--accent);
-            margin-top: 25px;
-        }
-
-        p {
-            margin-bottom: 1.2rem;
-            color: #374151;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-            font-size: 0.85rem;
-        }
-
-        th {
-            background-color: var(--accent);
-            color: #000000;
-            text-align: left;
-            padding: 12px;
-            font-weight: 700;
-        }
-
-        td {
-            padding: 12px;
-            border-bottom: 1px solid var(--border);
-        }
-
-        tr:nth-child(even) {
-            background-color: var(--card-bg);
-        }
-
-        .highlight-row {
-            background-color: #fef3c7 !important;
-            font-weight: 700;
-            color: #92400e;
-        }
-
-        .grid-2 {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-        }
-
-        .card {
-            padding: 20px;
-            background: var(--card-bg);
-            border-radius: 8px;
-            border: 1px solid var(--border);
-            margin-bottom: 15px;
-        }
-
-        .price-card {
-            border: 2px solid var(--border);
-            padding: 30px;
-            border-radius: 12px;
-        }
-
-        .price-card.featured {
-            border-color: var(--accent);
-            background: #fffbeb;
-        }
-
-        .price-amount {
-            font-size: 2.2rem;
-            font-weight: 800;
-            margin: 10px 0;
             color: var(--primary);
         }
 
-        ul.check-list {
+        .meta {
+            font-size: 0.85rem;
+            color: var(--secondary);
+            text-align: right;
+        }
+
+        /* HERO TYPE */
+        .hero {
+            padding: 100px 0;
+        }
+
+        h1 {
+            font-size: 4.5rem;
+            font-weight: 900;
+            line-height: 0.95;
+            letter-spacing: -2px;
+            margin: 0;
+            max-width: 900px;
+            color: var(--primary);
+        }
+
+        .lead {
+            font-size: 1.5rem;
+            margin-top: 30px;
+            font-weight: 300;
+            color: var(--secondary);
+            max-width: 700px;
+        }
+
+        /* GRID SECTIONS */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-top: 60px;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        /* SECTION DIVIDERS */
+        .section-divider {
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 10px;
+            margin-bottom: 40px;
+            display: inline-block;
+            min-width: 100%;
+        }
+
+        /* CARDS & FEATURES */
+        .feature-item {
+            border-top: 1px solid var(--border);
+            padding-top: 20px;
+        }
+
+        .feature-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            display: block;
+            color: var(--primary);
+        }
+
+        .feature-item p {
+            color: var(--secondary);
+        }
+
+        /* PRICING */
+        .price-option {
+            background: var(--card-bg);
+            padding: 40px;
+            position: relative;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+        }
+
+        .price-option.featured {
+            background: #ffffff;
+            /* White high-contrast */
+            border: 4px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .price-header {
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            display: block;
+            color: var(--secondary);
+        }
+
+        .price-option.featured .price-header {
+            color: var(--primary);
+        }
+
+        .price-amount {
+            font-size: 3.5rem;
+            font-weight: 900;
+            letter-spacing: -1px;
+            display: block;
+            margin-bottom: 30px;
+            color: var(--primary);
+        }
+
+        .price-list {
             list-style: none;
             padding: 0;
-            font-size: 0.9rem;
+            margin: 0;
+            font-size: 0.95rem;
         }
 
-        ul.check-list li {
-            margin-bottom: 8px;
-            padding-left: 25px;
+        .price-list li {
+            margin-bottom: 12px;
+            padding-left: 20px;
             position: relative;
+            color: var(--secondary);
         }
 
-        ul.check-list li::before {
+        .price-option.featured .price-list li {
+            color: var(--primary);
+        }
+
+        .price-list li::before {
             content: "✓";
             position: absolute;
             left: 0;
-            color: var(--success);
             font-weight: bold;
+            color: var(--primary);
         }
 
-        .security-layer {
-            margin-bottom: 20px;
-        }
-
-        .layer-badge {
-            background: var(--accent);
-            color: #000000;
-            padding: 2px 8px;
-            border-radius: 4px;
-            font-size: 0.7rem;
-            font-weight: 800;
-            margin-right: 10px;
-        }
-
-        .guarantee {
-            background: var(--accent);
-            color: #000000;
-            padding: 25px;
-            text-align: center;
-            border-radius: 12px;
-            margin: 40px 0;
-            font-weight: 700;
-        }
-
-        footer {
-            margin-top: 60px;
-            padding-top: 30px;
-            border-top: 1px solid var(--border);
+        /* TIMELINE */
+        .timeline-item {
             display: flex;
-            justify-content: space-between;
-            font-size: 0.9rem;
+            gap: 30px;
+            margin-bottom: 40px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid var(--border);
         }
 
-        /* Mobile Responsive Styles */
-        @media screen and (max-width: 768px) {
-            .document-wrapper {
-                margin: 20px;
-                padding: 30px 20px;
+        .timeline-week {
+            font-weight: 900;
+            font-size: 1.2rem;
+            min-width: 120px;
+            color: var(--accent);
+        }
+
+        .timeline-content h4 {
+            margin: 0 0 10px 0;
+            font-size: 1.3rem;
+        }
+
+        .timeline-content p {
+            color: var(--secondary);
+        }
+
+        /* FOOTER */
+        footer {
+            margin-top: 120px;
+            background: var(--primary);
+            color: var(--bg);
+            padding: 80px 0;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            border-bottom: 1px solid var(--accent);
+        }
+
+        /* RESPONSIVE */
+        @media(max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
             }
 
-            header {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 15px;
-            }
-
-            .header-title h1 {
-                font-size: 1.6rem;
-            }
-
-            .header-meta {
-                text-align: left;
-                font-size: 0.85rem;
-            }
-
-            h2 {
-                font-size: 1.3rem;
-                margin-top: 30px;
-            }
-
-            h3 {
-                font-size: 1.1rem;
-            }
-
-            /* Make tables scrollable on mobile */
-            table {
-                display: block;
-                overflow-x: auto;
-                white-space: nowrap;
-                font-size: 0.8rem;
-            }
-
-            th,
-            td {
-                padding: 8px;
-            }
-
-            /* Stack grid layouts on mobile */
             .grid-2 {
-                grid-template-columns: 1fr;
-                gap: 15px;
+                grid-template-columns: 1fr !important;
             }
 
-            .card {
-                padding: 15px;
-            }
-
-            .price-card {
-                padding: 20px;
-            }
-
-            .price-amount {
-                font-size: 1.8rem;
-            }
-
-            footer {
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            footer div[style*="text-align: right"] {
-                text-align: left !important;
-            }
-
-            .security-layer {
-                font-size: 0.9rem;
-            }
-
-            .guarantee {
-                padding: 20px;
-                font-size: 0.95rem;
-            }
-        }
-
-        @media screen and (max-width: 480px) {
-            .document-wrapper {
-                margin: 10px;
-                padding: 20px 15px;
-            }
-
-            .header-title h1 {
-                font-size: 1.4rem;
-            }
-
-            h2 {
-                font-size: 1.2rem;
-            }
-
-            table {
-                font-size: 0.75rem;
-            }
-
-            th,
-            td {
-                padding: 6px;
-            }
-        }
-
-        @media print {
-            body {
-                background: white;
-            }
-
-            .document-wrapper {
-                margin: 0;
-                box-shadow: none;
+            .grid-2>div {
+                /* Stack content on mobile inside the comparisons */
                 width: 100%;
-                padding: 20px;
             }
 
-            .no-break {
-                page-break-inside: avoid;
+            .container {
+                padding: 0 20px;
+            }
+
+            .timeline-item {
+                flex-direction: column;
+                gap: 10px;
             }
         }
     </style>
@@ -325,282 +278,412 @@
 
 <body>
 
-    <div class="document-wrapper">
+    <div class="container">
         <header>
-            <div class="header-title">
-                <p style="margin:0; color:#000000; font-weight:700; font-size: 0.75rem; letter-spacing: 2px;">
-                    PROJECT PROPOSAL V1</p>
-                <h1>Royette Millares</h1>
-            </div>
-            <div class="header-meta">
-                <b>Project:</b> Dear World Platform<br>
-                <b>Prepared for:</b> George<br>
-                <b>Date:</b> December 22, 2025
+            <div class="brand">Dear World &times; Royette</div>
+            <div class="meta">
+                PROPOSAL V2.0<br>
+                Prepared for George<br>
+                Dec 23, 2025
             </div>
         </header>
 
-        <section>
-            <h2>Building a High-Performance, Story-First Digital Experience</h2>
-            <p>The Dear World storytelling format relies on the emotional power of large-scale photography. Many
-                platforms fail at this—images load slowly, degrade in quality, or break the narrative flow. This
-                proposal outlines a custom-built, high-performance platform where photography remains the hero,
-                supported by a streamlined backend that empowers your team to manage content without ongoing developer
-                dependency.</p>
+        <section class="hero">
+            <h1>A Wikipedia for Stories.</h1>
+            <p class="lead">Moving beyond simple photo hosting to a living, breathing library of human experience. Safe.
+                Searchable. Owned by you.</p>
         </section>
 
-        <section class="no-break">
-            <h2>Why This Approach? (Value & Cost Savings)</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Factor</th>
-                        <th>Agency Approach</th>
-                        <th>Low-Cost Plugin Approach</th>
-                        <th>Royette Custom Optimized Approach</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><b>Performance</b></td>
-                        <td>Over-engineered ($50k+)</td>
-                        <td>Slow, bloated on mobile</td>
-                        <td>Optimized S3 + CDN delivery</td>
-                    </tr>
-                    <tr>
-                        <td><b>Ownership</b></td>
-                        <td>High ongoing maintenance</td>
-                        <td>Vendor lock-in & fees</td>
-                        <td>Full code & data ownership</td>
-                    </tr>
-                    <tr>
-                        <td><b>Timeline</b></td>
-                        <td>4–6 months</td>
-                        <td>Unpredictable delays</td>
-                        <td>8–10 weeks MVP</td>
-                    </tr>
-                    <tr>
-                        <td><b>Migration</b></td>
-                        <td>Manual & costly</td>
-                        <td>High risk of data loss</td>
-                        <td>Automated scripted ingestion</td>
-                    </tr>
-                </tbody>
-            </table>
-            <h3>The Cost Savings</h3>
-            <p>By using Firebase and AWS S3, Dear World avoids dedicated server infrastructure. This usage-based model
-                reduces annual hosting and maintenance costs by approximately <b>$5,000–$10,000</b> compared to
-                traditional enterprise platforms.</p>
+        <section class="mt-l">
+            <div class="section-divider">
+                <b style="text-transform: uppercase; letter-spacing: 1px;">The Vision</b>
+            </div>
+            <div class="grid-2">
+                <div>
+                    <h3 style="font-size: 1.8rem; margin-top: 0; line-height: 1.2;">The Problem with Standard Galleries
+                    </h3>
+                    <p>Current platforms are just digital shoe-boxes. They store photos, but they lose the
+                        <i>meaning</i>. They don't capture the "Brain Tattoo" stories alongside the images, and they
+                        don't let participants own their narrative.
+                    </p>
+                </div>
+                <div>
+                    <h3 style="font-size: 1.8rem; margin-top: 0; line-height: 1.2;">The Solution</h3>
+                    <p>A custom-built platform where every participant gets their own "Page"—a permanent digital home
+                        for their portrait and their story. Securely accessible via a simple code sent to their email.
+                        No passwords to forget.</p>
+                </div>
+            </div>
         </section>
 
-        <section class="no-break">
-            <h2>Market & Cost Comparison</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Developer Location</th>
-                        <th>Typical Project Cost</th>
-                        <th>Cost per Hour</th>
-                        <th>Savings with Royette</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>US Agency Developer</td>
-                        <td>$55,000 – $75,000</td>
-                        <td>$80–$120/hr</td>
-                        <td>$42,000–$65,000</td>
-                    </tr>
-                    <tr>
-                        <td>European Agency Developer</td>
-                        <td>$40,000 – $60,000</td>
-                        <td>$60–$100/hr</td>
-                        <td>$27,000–$50,000</td>
-                    </tr>
-                    <tr class="highlight-row">
-                        <td>Philippines Developer (Royette)</td>
-                        <td>$10,000 – $13,000</td>
-                        <td>$35/hr</td>
-                        <td>Baseline</td>
-                    </tr>
-                </tbody>
-            </table>
-            <p>By leveraging the geographic cost advantage, Dear World achieves
-                <b>72–85% cost savings</b> compared to US and European agencies. This rate allows for a dedicated,
-                full-time senior developer (40 hours/week) at a fraction of the cost.
+        <section class="mt-l">
+            <div class="section-divider">
+                <b style="text-transform: uppercase; letter-spacing: 1px;">Core Platform Specifications</b>
+            </div>
+            <div class="grid-2">
+                <div>
+                    <h3
+                        style="margin-top: 0; font-size: 1.5rem; border-bottom: 2px solid var(--border); padding-bottom: 10px; margin-bottom: 20px;">
+                        What Participants Can Do</h3>
+                    <ul class="price-list">
+                        <li><b>View Photos:</b> Access their personalized Dear World photo on a public-facing page.</li>
+                        <li><b>Claim Page:</b> Securely claim their page using Email + OTP (One-Time Passcode).</li>
+                        <li><b>Write Stories:</b>
+                            <ul
+                                style="margin-top: 5px; padding-left: 20px; list-style: circle; color: var(--secondary);">
+                                <li style="margin-bottom: 5px;">A Public Story (visible to all)</li>
+                                <li style="margin-bottom: 5px;">A Private "Brain Tattoo" Story (encrypted)</li>
+                            </ul>
+                        </li>
+                        <li><b>Privacy Controls:</b> Toggle visibility settings (Public / Private / Partial).</li>
+                        <li><b>Download:</b> Access high-resolution photo downloads instantly.</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3
+                        style="margin-top: 0; font-size: 1.5rem; border-bottom: 2px solid var(--border); padding-bottom: 10px; margin-bottom: 20px;">
+                        What Admins Can Do</h3>
+                    <ul class="price-list">
+                        <li><b>Bulk Upload:</b> Ingest 300+ photos via drag-and-drop or CSV mapping.</li>
+                        <li><b>Monitor Status:</b> Real-time progress bars and detailed error logs for uploads.</li>
+                        <li><b>Search & Filter:</b> distinct participant lookup by name, email, or event.</li>
+                        <li><b>Access Control:</b> View private stories (protected by mandatory audit logging).</li>
+                        <li><b>Analytics:</b> View platform usage, claim rates, and story submissions.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- L10 TECHNICAL DEEP DIVE SECTION -->
+        <section class="mt-l">
+            <div class="section-divider">
+                <b style="text-transform: uppercase; letter-spacing: 1px;">Engineering Architecture: Why This is
+                    Different</b>
+            </div>
+
+            <p style="margin-bottom: 40px; color: var(--secondary);">Many proposals look the same on the surface. Here
+                is how we avoid the <i>invisible</i> technical traps that cause platforms to fail at scale.</p>
+
+            <div style="display: grid; grid-template-columns: 1fr; gap: 40px;">
+
+                <!-- 1. IDENTITY -->
+                <div
+                    style="background: var(--card-bg); padding: 30px; border: 1px solid var(--border); border-radius: 8px;">
+                    <h3 style="margin-top: 0; color: var(--primary);">1. Identity: The "Magic Login"</h3>
+                    <div class="grid-2 inner-grid"
+                        style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 20px;">
+                        <div>
+                            <p style="color: #000000; font-weight: bold; margin-bottom: 5px;">The Trap (How others fail)
+                            </p>
+                            <p style="font-size: 0.95rem; color: var(--secondary); margin-top: 0;">Sending login emails
+                                synchronously. If the email provider hangs for 5 seconds, your site hangs for 5 seconds.
+                                Users get frustrated and leave.</p>
+                        </div>
+                        <div>
+                            <p style="color: var(--success); font-weight: bold; margin-bottom: 5px;">The Solution (Our
+                                Architecture)</p>
+                            <p style="font-size: 0.95rem; color: var(--secondary); margin-top: 0;"><b>Asynchronous
+                                    Queues (Redis/BullMQ).</b> The UI is "Optimistic"—it tells the user "Sent!"
+                                immediately, while the backend handles the delivery in a background lane. We also use
+                                "Leaky Bucket" rate-limiting to stop bots from burning your email credits.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. BULK UPLOAD -->
+                <div
+                    style="background: var(--card-bg); padding: 30px; border: 1px solid var(--border); border-radius: 8px;">
+                    <h3 style="margin-top: 0; color: var(--primary);">2. Performance: 300+ Photo Bulk Upload</h3>
+                    <div class="grid-2 inner-grid"
+                        style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 20px;">
+                        <div>
+                            <p style="color: #000000; font-weight: bold; margin-bottom: 5px;">The Trap</p>
+                            <p style="font-size: 0.95rem; color: var(--secondary); margin-top: 0;">Trying to run uploads
+                                through the web server. Next.js has memory limits; a 2GB batch upload will crash the
+                                server instantly.</p>
+                        </div>
+                        <div>
+                            <p style="color: var(--success); font-weight: bold; margin-bottom: 5px;">The Solution</p>
+                            <p style="font-size: 0.95rem; color: var(--secondary); margin-top: 0;"><b>Presigned S3
+                                    URLs.</b> We create a "direct tunnel" from the admin's computer to the cloud storage
+                                (AWS/GCP), bypassing the web server entirely. This makes uploads 10x faster and
+                                crash-proof.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. PRIVACY -->
+                <div
+                    style="background: var(--card-bg); padding: 30px; border: 1px solid var(--border); border-radius: 8px;">
+                    <h3 style="margin-top: 0; color: var(--primary);">3. Trust: The "Brain Tattoo" Privacy</h3>
+                    <div class="grid-2 inner-grid"
+                        style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 20px;">
+                        <div>
+                            <p style="color: #000000; font-weight: bold; margin-bottom: 5px;">The Trap</p>
+                            <p style="font-size: 0.95rem; color: var(--secondary); margin-top: 0;">Storing private
+                                stories as plain text in the database. Anyone with database access (developers, DBAs)
+                                could read these deep secrets.</p>
+                        </div>
+                        <div>
+                            <p style="color: var(--success); font-weight: bold; margin-bottom: 5px;">The Solution</p>
+                            <p style="font-size: 0.95rem; color: var(--secondary); margin-top: 0;"><b>Encryption at Rest
+                                    + Audit Logs.</b> Stories are encrypted before they touch the disk. Additionally, we
+                                build an immutable "Audit Log"—if an Admin views a private story, a permanent record is
+                                created that cannot be deleted.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. SEARCH -->
+                <div
+                    style="background: var(--card-bg); padding: 30px; border: 1px solid var(--border); border-radius: 8px;">
+                    <h3 style="margin-top: 0; color: var(--primary);">4. Vision: The Wikipedia Search</h3>
+                    <div class="grid-2 inner-grid"
+                        style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 20px;">
+                        <div>
+                            <p style="color: #000000; font-weight: bold; margin-bottom: 5px;">The Trap</p>
+                            <p style="font-size: 0.95rem; color: var(--secondary); margin-top: 0;">Using basic database
+                                search. It fails on typos ("Sara" vs "Sarah") and feels "dumb" like an old filing
+                                system.</p>
+                        </div>
+                        <div>
+                            <p style="color: var(--success); font-weight: bold; margin-bottom: 5px;">The Solution</p>
+                            <p style="font-size: 0.95rem; color: var(--secondary); margin-top: 0;"><b>Fuzzy Search
+                                    Engine (Algolia/Vector).</b> We implement a smart search index that understands
+                                typos and partial matches, ensuring you can find that one participant instantly during a
+                                live event.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="mt-l">
+            <div class="section-divider">
+                <b style="text-transform: uppercase; letter-spacing: 1px;">The Roadmap: How We Get There</b>
+            </div>
+            <p style="color: var(--secondary); margin-bottom: 40px;">We don't build in the dark. We work in 2-week
+                "sprints" so you see progress constantly—not just at the end.</p>
+
+            <div class="timeline-item">
+                <div class="timeline-week">Weeks 1-2</div>
+                <div class="timeline-content">
+                    <h4>The Blueprint</h4>
+                    <p>We set up the secure database ("The Vault") and design the black-and-white visual capability. We
+                        ensure the "Magic Login" system is working perfectly.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-week">Weeks 3-6</div>
+                <div class="timeline-content">
+                    <h4>Building the Experience</h4>
+                    <p>We build the visual part—what the users see. This includes the gallery, the profile pages, and
+                        the story writing interface. We test it on phones, tablets, and desktops.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-week">Weeks 7-9</div>
+                <div class="timeline-content">
+                    <h4>The Admin Tools</h4>
+                    <p>We build the "Command Center" for your team. This is where you drag-and-drop hundreds of photos
+                        to launch a new event in minutes.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-week">Week 10</div>
+                <div class="timeline-content">
+                    <h4>Launch</h4>
+                    <p>Final polishing. We double-check security, speed, and reliability. Then, we flip the switch.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="mt-l">
+            <div class="section-divider">
+                <b style="text-transform: uppercase; letter-spacing: 1px;">Technical Foundation: The Power Under the
+                    Hood</b>
+            </div>
+            <p style="color: var(--secondary); margin-bottom: 30px;">We don't just use "popular" tools. We use the
+                specific tools minimalists and enterprises use to stay fast and secure.</p>
+
+            <div class="grid-3">
+                <div class="feature-item">
+                    <span class="feature-title">Next.js 14</span>
+                    <p><b>The Engine.</b> The same technology used by Netflix and TikTok. It makes pages load instantly
+                        and ensures Google can read every story.</p>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-title">Vercel</span>
+                    <p><b>The Global Network.</b> Your site doesn't live on one computer; it lives on hundreds of "Edge"
+                        servers worldwide, so it's fast in London, New York, and Tokyo.</p>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-title">Tailwind CSS</span>
+                    <p><b>The Styling System.</b> Allows us to build a completely custom, pixel-perfect design without
+                        the "bloat" of traditional website templates.</p>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-title">Firebase Auth</span>
+                    <p><b>The Bouncer.</b> Bank-grade identity protection (Google’s infrastructure) that handles the
+                        "Magic Logins" and keeps private stories private.</p>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-title">AWS S3</span>
+                    <p><b>The Vault.</b> Infinite cloud storage for photos. Whether you have 100 participants or
+                        1,000,000, it never runs out of space.</p>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-title">Redis & BullMQ</span>
+                    <p><b>The Traffic Controller.</b> This manages background tasks (like sending emails) so the website
+                        never "freezes" while doing heavy lifting.</p>
+                </div>
+            </div>
+        </section>
+
+
+
+        <section class="mt-l">
+            <div class="section-divider">
+                <b style="text-transform: uppercase; letter-spacing: 1px;">Scalability: Future-Proofing</b>
+            </div>
+            <p style="color: var(--secondary); margin-bottom: 30px;">
+                Most agencies build at <b>Step 1 or 2</b> (Single Server/WordPress). This works fine until you go
+                viral—then it crashes.
+                <br><br>
+                We are skipping the "toy app" phase. By using this "Serverless" architecture, we are launching directly
+                at <b>Step 5 (Autoscaling)</b>:
             </p>
-            <ul class="check-list">
-                <li>Extended post-launch optimization and support</li>
-                <li>Additional feature development and refinement</li>
-                <li>Marketing and platform growth initiatives</li>
-                <li>Higher profit margins for your business</li>
-            </ul>
-        </section>
 
-        <section class="no-break">
-            <h2>Project Roadmap (8–10 Weeks)</h2>
-            <div class="grid-2">
-                <div class="card">
-                    <b>Phase 1 – Foundation (Weeks 1–2)</b><br>
-                    <small>Architecture setup including Firebase Auth, Firestore schemas, and AWS S3 buckets designed
-                        for long-term scalability.</small>
+            <div class="grid-3">
+                <div class="feature-item">
+                    <span class="feature-title">Global CDN</span>
+                    <p>Your site is replicated on servers in 70+ cities instantly. Speed is identical for a user in
+                        London or Tokyo.</p>
                 </div>
-                <div class="card">
-                    <b>Phase 2 – Core Experience (Weeks 3–6)</b><br>
-                    <small>Next.js 16 frontend development, high-resolution galleries, mobile-first layouts, and guided
-                        story submissions.</small>
+                <div class="feature-item">
+                    <span class="feature-title">Auto-Scaling</span>
+                    <p>If 50,000 people visit at once, the servers automatically multiply to handle the load, then
+                        shrink back down. No crashing.</p>
                 </div>
-                <div class="card">
-                    <b>Phase 3 – Migration & Admin Tools (Weeks 7–9)</b><br>
-                    <small>Automated photo ingestion scripts (Google Drive/NAS compatible) and a private moderation
-                        dashboard.</small>
-                </div>
-                <div class="card">
-                    <b>Phase 4 – Optimization & Launch (Week 10)</b><br>
-                    <small>Load testing, SEO optimization, accessibility checks, and production deployment.</small>
+                <div class="feature-item">
+                    <span class="feature-title">Zero Maintenance</span>
+                    <p>No "server updates" or "security patches" to manage. The infrastructure is managed by the best
+                        engineers at Vercel and Google.</p>
                 </div>
             </div>
         </section>
 
-        <section class="no-break">
-            <h2>Investment Details</h2>
+        <section class="mt-l">
+            <div class="section-divider">
+                <b style="text-transform: uppercase; letter-spacing: 1px;">The Logistics</b>
+            </div>
+            <div class="mt-s">
+                <h4 style="margin-top: 0; font-size: 1.2rem;">Availability & Working Hours</h4>
+                <p><b>Status:</b> Available to start immediately.</p>
+                <p><b>Working Hours:</b> Full-time (40 hours/week). I overlap significantly with US/European time
+                    zones to ensure smooth communication for meetings and updates.</p>
+            </div>
+            <div class="mt-s"
+                style="background: #ffffff; padding: 30px; border-radius: 8px; border: 4px solid var(--primary); box-shadow: 10px 10px 0px rgba(0, 0, 0, 0.1);">
+                <h4
+                    style="margin-top: 0; font-size: 1.5rem; text-transform: uppercase; letter-spacing: 1px; color: var(--primary); display: flex; align-items: center; gap: 15px;">
+                    <!-- Lucide Icon: TriangleAlert -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+                        stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z" />
+                        <path d="M12 9v4" />
+                        <path d="M12 17h.01" />
+                    </svg>
+                    Critical Assumptions & Risks
+                </h4>
+                <p style="margin-bottom: 20px; font-weight: 500; font-size: 1.1rem;">To protect the 10-week launch date,
+                    we agreed on the following:</p>
+                <ul
+                    style="margin-top: 10px; margin-bottom: 0; padding-left: 20px; color: var(--primary); font-size: 1rem;">
+                    <li style="margin-bottom: 15px;"><b>Brand Assets:</b> You can provide high-res logos and fonts in
+                        Week 1.</li>
+                    <li style="margin-bottom: 15px;"><b>Feedback:</b> We can have a 30-minute sync once a week (or every
+                        day if you prefer) to review progress.</li>
+                    <li style="margin-bottom: 15px;"><b>Testing Content:</b> You can provide a batch of 50-100 real
+                        photos for us to test the bulk uploader in Week 6.</li>
+                    <li
+                        style="margin-bottom: 0; background: #f4f4f5; padding: 10px 15px; border-radius: 4px; border-left: 5px solid #000000;">
+                        <b>Scope Discipline:</b> Building "Bank-Grade" security and reliability (Queues, Encryption) in
+                        8-10 weeks is aggressive. To hit this date, <b>we must strictly lock the feature set in Week
+                            2.</b>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="mt-l">
+            <div class="section-divider">
+                <b style="text-transform: uppercase; letter-spacing: 1px;">Investment Options</b>
+            </div>
             <div class="grid-2">
-                <div class="price-card">
-                    <h3>Option 1 – $10,000</h3>
-                    <p><small>Client Provides UI Design</small></p>
-                    <ul class="check-list">
-                        <li>Immediate availability</li>
-                        <li>Full-stack Next.js 16 & Firebase</li>
-                        <li>AWS S3 CDN optimization</li>
-                        <li>Automated migration & admin tools</li>
-                        <li>30 days post-launch support</li>
-                        <li>Perfect for existing design systems</li>
+                <div class="price-option">
+                    <span class="price-header">Essential Foundation</span>
+                    <span class="price-amount">$10,000</span>
+                    <p class="mb-s"><i>Best if you already have a strict visual design file ready to code.</i></p>
+                    <ul class="price-list">
+                        <li>All features listed above (OTP, Bulk Upload, Privacy)</li>
+                        <li>Ultra-Fast, High-Performance Website</li>
+                        <li>Bank-Grade Security Setup</li>
+                        <li>30 Days Support after launch</li>
                     </ul>
                 </div>
-                <div class="price-card featured">
-                    <h3>Option 2 – $13,000</h3>
-                    <p><small>Full Service with Custom Design</small></p>
-                    <ul class="check-list">
-                        <li>Custom UI/UX + Branding + Prototyping</li>
-                        <li>Design consultation & brand alignment</li>
-                        <li>Premium design iterations</li>
-                        <li>Full-stack Next.js 16 & Firebase</li>
-                        <li>AWS S3 CDN optimization</li>
-                        <li>Automated migration & admin tools</li>
-                        <li>30 days post-launch support</li>
+                <div class="price-option featured">
+                    <span class="price-header">Full Creative Partner</span>
+                    <span class="price-amount">$13,000</span>
+                    <p class="mb-s"><i>Best if you need me to help refine the "Look & Feel" and User Experience.</i></p>
+                    <ul class="price-list">
+                        <li><b>Everything in Essential, plus:</b></li>
+                        <li>Custom Design & Layout Adjustments</li>
+                        <li><b>Design direction inspired by the Wieden+Kennedy minimalist aesthetic</b></li>
+                        <li>Premium Animations & Interactive Polish</li>
+                        <li>"Clickable" Preview before we write code</li>
+                        <li>Brand alignment consultation</li>
                     </ul>
                 </div>
             </div>
-            <h3>Payment Terms</h3>
-            <ul class="check-list">
-                <li><b>Timeline:</b> 8–10 Weeks (both options)</li>
-                <li><b>Structure:</b> 33% deposit / 33% at midpoint (Week 5) / 34% at launch</li>
-                <li><b>vs. US Agency:</b> Save $42,000–$65,000</li>
-                <li><b>vs. European Agency:</b> Save $27,000–$50,000</li>
-            </ul>
+            <p class="mt-s" style="font-size: 0.9rem; color: #666;">* Payment Terms: 33% Deposit, 33% Mid-point, 34%
+                Completion.</p>
         </section>
 
-        <section>
-            <h2>Technology Stack</h2>
-            <p><b>Frontend:</b> Next.js 16 | <b>Backend:</b> Firebase | <b>Storage:</b> AWS S3 | <b>Security:</b>
-                Cloudflare Turnstile</p>
-
-            <h3>Why Next.js 16 is Critical for Dear World</h3>
-            <div class="card">
-                <p><b>1. Lightning-Fast Image Loading:</b> Native Image component optimizes every photo: responsive
-                    resizing, lazy loading, WebP, and blur placeholders. Photos load 3-5x faster, preserving narrative
-                    flow.</p>
-                <p><b>2. Server-Side Rendering (SEO):</b> Ensures every story, photo, and creator profile is fully
-                    indexable by Google. A competitive advantage worth $50,000+ in marketing.</p>
-                <p><b>3. Built-In Performance:</b> Handles code splitting and automatic optimization out-of-the-box. No
-                    need for specialized performance engineers.</p>
-                <p><b>4. Global Edge Caching with Vercel:</b> Photos served from edge servers near the viewer (Tokyo,
-                    Berlin, São Paulo) arrive instantly.</p>
-                <p><b>5. Mobile-First by Default:</b> Over 80% of consumption is on mobile. Interactions feel smooth
-                    even on 3G connections.</p>
-                <p><b>6. Future-Proof for Scale:</b> Scales from hundreds to millions of stories without
-                    refactoring.</p>
-                <hr>
-                <p><b>The Bottom Line:</b> Dear World's audience won't experience slow image loads or janky mobile
-                    experiences. They'll get the emotional storytelling experience that builds deep audience connection.
-                </p>
+        <section class="mt-l">
+            <div class="section-divider">
+                <b style="text-transform: uppercase; letter-spacing: 1px;">Why I Want This (A Personal Note)</b>
             </div>
+            <p style="color: var(--secondary); max-width: 800px;">
+                To be completely real with you, I don't want this to be just another freelance gig. This is the kind of
+                flagship project I actually care about.
+                <br><br>
+                If we lock this in, I'm not going to just build it and ghost you. I want to be your long-term technical
+                partner on this. I want to see "Dear World" run perfectly at scale just as much as you do.
+                <br><br>
+                <b style="color: var(--primary); font-weight: bold;">I'm all in.</b>
+            </p>
         </section>
 
-        <section class="no-break">
-            <h2>Relevant Portfolio Work</h2>
-            <div class="grid-2">
-                <div class="card">
-                    <b>Tropa PH</b><br>
-                    <small>Community Platform</small><br>
-                    <a href="https://www.tropaph.com/" style="color: var(--accent); font-weight: bold;">View Live
-                        Project →</a>
-                </div>
-                <div class="card">
-                    <b>Creator Portfolio</b><br>
-                    <small>Creative Showcase</small><br>
-                    <a href="https://royette-for-creators.netlify.app/portfolio"
-                        style="color: var(--accent); font-weight: bold;">View Live Project →</a>
-                </div>
-            </div>
-        </section>
+    </div>
 
-        <section class="no-break">
-            <h2>Enterprise-Grade Security Architecture</h2>
-            <div class="security-layer"><span class="layer-badge">1</span> <b>Cloudflare Turnstile:</b> Bot-resistant
-                forms.
-                No spam or fake accounts.</div>
-            <div class="security-layer"><span class="layer-badge">2</span> <b>Firebase Auth:</b> Industry-standard OAuth
-                2.0. User passwords never stored on servers.</div>
-            <div class="security-layer"><span class="layer-badge">3</span> <b>OWASP Top 10:</b> Protection against SQL
-                Injection, XSS, and CSRF.</div>
-            <div class="security-layer"><span class="layer-badge">4</span> <b>Cloudflare DDoS Protection:</b> Malicious
-                traffic filtered at the edge. Zero downtime.</div>
-            <div class="security-layer"><span class="layer-badge">5</span> <b>Rate Limiting & WAF:</b> Brute force
-                attempts blocked after 5 failures.</div>
-            <div class="security-layer"><span class="layer-badge">6</span> <b>End-to-End Encryption:</b> TLS 1.3 in
-                transit and AES-256 at rest.</div>
-
-            <h3>Why This Matters for Dear World</h3>
-            <ul class="check-list">
-                <li><b>User Trust:</b> Storytellers know narratives are private and safe.</li>
-                <li><b>Zero Spam:</b> Clean storytelling community with Turnstile.</li>
-                <li><b>Always Online:</b> DDoS protection ensures revenue is never interrupted.</li>
-                <li><b>Legal Compliance:</b> GDPR/CCPA ready from day one.</li>
-                <li><b>Scalable Security:</b> Protection grows with the user base.</li>
-            </ul>
-            <div class="guarantee">
-                "Your platform. Your stories. Securely protected. Guaranteed."
-            </div>
-        </section>
-
-        <section>
-            <h2>Why Royette?</h2>
-            <ul class="check-list">
-                <li>6+ years building high-performance web applications.</li>
-                <li>Specialized in media-heavy platforms (image optimization, CDN strategy).</li>
-                <li>Experience migrating data from legacy sources (Google Drive, NAS, etc).</li>
-                <li>Full-stack expertise: architecture to deployment.</li>
-                <li>Post-launch support and optimization included.</li>
-                <li>72–85% cost savings vs. US/European agencies without compromising quality.</li>
-                <li>Security expertise: 6+ platforms with zero security breaches.</li>
-                <li>Next.js 16 specialist with production-grade experience.</li>
-            </ul>
-        </section>
-
-        <footer>
+    <footer>
+        <div class="container grid-2">
             <div>
-                <b>Royette Millares</b><br>
-                Senior Full-Stack Engineer<br>
-                <a href="https://royette-millares.vercel.app/"
-                    style="color: var(--accent); font-weight: bold;">royette-millares.vercel.app</a>
+                <h2 style="margin-top: 0; font-size: 2rem;">Let's build this.</h2>
+                <p>Ready to turn "Dear World" into a digital legacy.</p>
             </div>
             <div style="text-align: right;">
-                LinkedIn: <a href="https://www.linkedin.com/in/royette-baldevia-millares/"
-                    style="color: var(--accent); font-weight: bold;">royette-baldevia-millares</a><br>
-                Phone: +63 962 694 0145
+                <p><b>Royette Millares</b><br>
+                    Senior Full-Stack Engineer<br>
+                    <a href="https://royette-millares.vercel.app/"
+                        style="color: #fff; border-bottom: 1px solid #fff;">royette-millares.vercel.app</a><br>
+                    +63 962 694 0145
+                </p>
             </div>
-        </footer>
-    </div>
+        </div>
+    </footer>
 
 </body>
 
